@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận diện biển số xe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-car-side"></i>
+                <span>PLATE VISION</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#features">Tính năng</a></li>
+                    <li><a href="#team">Nhóm phát triển</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>NHẬN DIỆN BIỂN SỐ XE</h1>
+            <p>Ứng dụng nhận diện biển số xe với độ chính xác cao sử dụng Machine Learning</p>
+            <button class="hero-btn">Bắt đầu ngay <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="camera"><i class="fas fa-camera"></i> Camera</button>
+                <button class="tab-btn" data-tab="upload"><i class="fas fa-upload"></i> Tải ảnh lên</button>
+            </div>
+            
+            <div class="tab-content" id="camera-tab">
+                <div class="camera-container">
+                    <video id="video" autoplay></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                    <div class="button-container">
+                        <button id="startBtn" class="btn"><i class="fas fa-power-off"></i> Bật camera</button>
+                        <button id="flipCamBtn" class="btn" disabled><i class="fas fa-sync"></i> Lật camera</button>
+                        <button id="captureBtn" class="btn" disabled><i class="fas fa-camera"></i> Chụp ảnh</button>
+                        <button id="realTimeBtn" class="btn" disabled><i class="fas fa-video"></i> Nhận diện liên tục</button>
+                    </div>
+                    <div class="status-indicator" id="realtimeStatus" style="display: none;">
+                        <div class="status-dot"></div>
+                        <span>Đang nhận diện trực tiếp</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="upload-tab" style="display: none;">
+                <div class="upload-container">
+                    <div class="file-input-container">
+                        <input type="file" id="imageInput" accept="image/*">
+                        <label for="imageInput"><i class="fas fa-file-upload"></i> Chọn hình ảnh</label>
+                    </div>
+                    <div class="preview-container">
+                        <img id="imagePreview" style="display: none;">
+                        <button id="processBtn" class="btn" disabled><i class="fas fa-search"></i> Phân tích ảnh</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="result-container card">
+            <h2><i class="fas fa-clipboard-check"></i> Kết quả nhận diện</h2>
+            <div id="plateResult">Chưa có kết quả</div>
+            <img id="plateImage" style="display: none;">
+        </div>
+
+        <section id="features" class="features-section">
+            <h2 class="section-title">Tính năng nổi bật</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Nhận diện nhanh chóng</h3>
+                    <p>Phân tích và nhận dạng biển số xe trong thời gian thực với tốc độ tối ưu</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Độ chính xác cao</h3>
+                    <p>Sử dụng các thuật toán Machine Learning tiên tiến cho kết quả chính xác</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Đa nền tảng</h3>
+                    <p>Hoạt động linh hoạt trên nhiều thiết bị và trình duyệt khác nhau</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>An toàn dữ liệu</h3>
+                    <p>Xử lý hình ảnh cục bộ, đảm bảo quyền riêng tư cho người dùng</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team" class="team-section">
+            <h2 class="section-title">Nhóm phát triển</h2>
+            <div class="team-members">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Nguyễn Chí Trung</h3>
+                    <p class="member-role">Sinh viên</p>
+                    <p class="member-desc">Phát triển giải thuật Machine Learning và thiết kế giao diện</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Phan Nhật Trường</h3>
+                    <p class="member-role">Sinh viên</p>
+                    <p class="member-desc">Xử lý backend và triển khai giải thuật Machine Learning</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Thêm container debug -->
+        <div class="debug-container" style="margin-top: 20px; padding: 15px; background-color: #f8f8f8; border-radius: 8px; display: none;">
+            <h3>Debug Data</h3>
+            <pre id="debugData" style="white-space: pre-wrap; font-family: monospace; font-size: 12px; background-color: #eee; padding: 10px; border-radius: 4px; overflow-x: auto;"></pre>
+            <button id="toggleDebug" style="margin-top: 10px; font-size: 12px; padding: 5px 10px;">Show Debug Data</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>PLATE VISION</h3>
+                <p>Ứng dụng nhận diện biển số xe thông minh sử dụng các công nghệ Machine Learning tiên tiến.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Liên kết</h4>
+                <ul>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> Giới thiệu</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Tính năng</a></li>
+                    <li><a href="#team"><i class="fas fa-users"></i> Nhóm phát triển</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Liên hệ</h4>
+                <p><i class="fas fa-envelope"></i> Email: trungtada123@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Thành phố Hồ Chí Minh, Việt Nam</p>
+                <p><i class="fas fa-phone"></i> Hotline: 0905 123 456</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PLATE VISION. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
